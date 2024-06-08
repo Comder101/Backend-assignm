@@ -46,12 +46,12 @@ function CartComp() {
   const handleRemoveFromCart = (itemId) => {
     axios.delete(`https://ecommerce-app-umqe.onrender.com/api/cart/remove/${itemId}/`)
       .then(() => {
-        alert("Item removed from cart successfully");
+        
         fetchCartItems(); 
       })
       .catch(() => {
         alert("Failed to remove item from cart");
-        window.location.reload();
+        
       });
   };
 

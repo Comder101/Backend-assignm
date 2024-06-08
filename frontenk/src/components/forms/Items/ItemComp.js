@@ -35,12 +35,12 @@ function ItemComp() {
   const handleAddToCart = (itemId) => {
     axios.post('https://ecommerce-app-umqe.onrender.com/api/cart/add/', { item: itemId })
       .then((response) => {
-        alert("Item added to cart successfully");
-        window.location.reload();
+        
+        
       })
       .catch((error) => {
         alert("Failed to add item to cart");
-        window.location.reload();
+        
       });
   };
 
