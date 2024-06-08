@@ -8,7 +8,7 @@ function ItemComp() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    axios.get('http://127.0.0.1:8000/api/items/')
+    axios.get('https://ecommerce-app-umqe.onrender.com/api/items/')
       .then(response => {
         setItems(response.data);
         setLoading(false);
@@ -22,7 +22,7 @@ function ItemComp() {
   const handleSearch = async () => {
     setLoading(true);
     try {
-      const url = `http://127.0.0.1:8000/api/search-items/?query=${searchQuery}`;
+      const url = `https://ecommerce-app-umqe.onrender.com/api/search-items/?query=${searchQuery}`;
       const response = await axios.get(url);
       setItems(response.data);
       setLoading(false);
@@ -33,7 +33,7 @@ function ItemComp() {
   };
 
   const handleAddToCart = (itemId) => {
-    axios.post('http://127.0.0.1:8000/api/cart/add/', { item: itemId })
+    axios.post('https://ecommerce-app-umqe.onrender.com/api/cart/add/', { item: itemId })
       .then((response) => {
         alert("Item added to cart successfully");
         window.location.reload();

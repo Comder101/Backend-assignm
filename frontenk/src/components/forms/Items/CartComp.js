@@ -12,7 +12,7 @@ function CartComp() {
   }, []);
 
   const fetchCartItems = () => {
-    fetch('http://127.0.0.1:8000/api/cart/')
+    fetch('https://ecommerce-app-umqe.onrender.com/api/cart/')
       .then(response => response.json())
       .then(data => {
         setCartItems(data);
@@ -28,7 +28,7 @@ function CartComp() {
   const fetchItemDetails = (cartItems) => {
     const itemIds = cartItems.map(item => item.item);
     const promises = itemIds.map(itemId =>
-      axios.get(`http://127.0.0.1:8000/api/items/${itemId}/`)
+      axios.get(`https://ecommerce-app-umqe.onrender.com/api/items/${itemId}/`)
     );
 
     Promise.all(promises)
@@ -44,7 +44,7 @@ function CartComp() {
   };
 
   const handleRemoveFromCart = (itemId) => {
-    axios.delete(`http://127.0.0.1:8000/api/cart/remove/${itemId}/`)
+    axios.delete(`https://ecommerce-app-umqe.onrender.com/api/cart/remove/${itemId}/`)
       .then(() => {
         alert("Item removed from cart successfully");
         fetchCartItems(); 
